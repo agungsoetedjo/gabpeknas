@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Dashboard\BeritaController;
 use App\Http\Controllers\Dashboard\DashboardController;
+use App\Http\Controllers\Dashboard\FaqController;
 use App\Http\Controllers\Dashboard\GaleriController;
 use App\Http\Controllers\Dashboard\KategoriController;
 use App\Http\Controllers\Dashboard\PesanController;
@@ -46,4 +47,8 @@ Route::middleware(['auth'])
 
         Route::resource('/pesan', PesanController::class)->only(['index', 'show', 'destroy']);
         Route::resource('/runningtext', RunningTextController::class);
+        Route::resource('/faq', FaqController::class);
+        Route::post('/pesan/{id}/balas', [PesanController::class, 'balas'])->name('pesan.balas');
+        
+
     });

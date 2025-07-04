@@ -48,6 +48,23 @@
                     ← Kembali ke daftar pesan
                 </a>
             </div>
+
+            <!-- Form Balas Pesan -->
+            <div class="mt-8">
+                <form action="{{ route('dashboard.pesan.balas', $pesan->id) }}" method="POST">
+                    @csrf
+                    <label for="balasan" class="block mb-2 text-sm font-medium text-gray-700">Balas Pesan</label>
+                    <textarea id="balasan" name="balasan" rows="6"
+                            class="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
+                            placeholder="Tulis balasan di sini...">{{ old('balasan') }}</textarea>
+
+                    <button type="submit"
+                            class="mt-4 inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded text-sm font-medium transition">
+                        Kirim Balasan
+                    </button>
+                </form>
+            </div>
+
         </div>
     </div>
 </x-layouts.admin>
