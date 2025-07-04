@@ -58,7 +58,7 @@ CREATE TABLE `berita` (
   CONSTRAINT `berita_kategori_id_foreign` FOREIGN KEY (`kategori_id`) REFERENCES `kategori` (`id`) ON DELETE CASCADE,
   CONSTRAINT `berita_kode_provinsi_foreign` FOREIGN KEY (`kode_provinsi`) REFERENCES `provinsi` (`kode`) ON DELETE CASCADE,
   CONSTRAINT `berita_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 CREATE TABLE `cache` (
   `key` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -125,7 +125,7 @@ CREATE TABLE `faqs` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 CREATE TABLE `galeri` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
@@ -216,7 +216,7 @@ CREATE TABLE `migrations` (
   `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 CREATE TABLE `password_reset_tokens` (
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -236,7 +236,7 @@ CREATE TABLE `pesan` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 CREATE TABLE `provinsi` (
   `kode` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -283,6 +283,15 @@ CREATE TABLE `regulasi_kategori` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE `runningtext` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `teks` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `aktif` tinyint(1) NOT NULL DEFAULT '1',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 CREATE TABLE `sessions` (
   `id` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -806,7 +815,8 @@ INSERT INTO `anggota_bujk` (`id`, `nama_bujk`, `kualifikasi`, `tgl_pembuatan`, `
 (457, 'J PAINT INDOMAKMUR, PT', 'K', '2025-03-07', '2026-03-07', NULL, '31', '3173', NULL, NULL),
 (458, 'JALA SUTRA, CV', 'K', '2024-08-06', '2025-08-06', NULL, '33', '3307', NULL, NULL),
 (459, 'JALIN PANGESTU, CV', 'K', '2025-02-24', '2026-02-24', NULL, '35', '3521', NULL, NULL),
-(460, 'JALINMITRA MAJU BERSAMA, PT', 'M', '2024-09-26', '2025-09-26', NULL, '32', '3201', NULL, NULL),
+(460, 'JALINMITRA MAJU BERSAMA, PT', 'M', '2024-09-26', '2025-09-26', NULL, '32', '3201', NULL, NULL);
+INSERT INTO `anggota_bujk` (`id`, `nama_bujk`, `kualifikasi`, `tgl_pembuatan`, `tgl_berakhir`, `nomor_kta`, `kode_provinsi`, `kode_kab_kota`, `created_at`, `updated_at`) VALUES
 (461, 'JANITRA BHIRAWA, CV', 'K', '2025-05-07', '2026-05-07', NULL, '35', '3520', NULL, NULL),
 (462, 'JARIA HOGUT, CV', 'K', '2025-05-31', '2026-05-31', NULL, '91', '9206', NULL, NULL),
 (463, 'JASA AKSA MANDIRI, PT', 'K', '2025-04-20', '2026-04-20', NULL, '32', '3276', NULL, NULL),
@@ -822,8 +832,7 @@ INSERT INTO `anggota_bujk` (`id`, `nama_bujk`, `kualifikasi`, `tgl_pembuatan`, `
 (473, 'JESSICA, CV', 'K', '2025-04-15', '2026-04-15', NULL, '94', '9115', NULL, NULL),
 (474, 'JETTA NAWASENA AMERTA, PT', 'K', '2025-01-14', '2026-01-19', NULL, '36', '3671', NULL, NULL),
 (475, 'JIANGSU SUJING GROUP COMPANY LIMITED, Ltd', 'B', '2025-03-06', '2026-03-06', NULL, '31', '3173', NULL, NULL),
-(476, 'JIANGSU ZHONGTIAN TECHNOLOGY CO., Ltd', 'B', '2024-08-14', '2025-08-14', NULL, '31', '3173', NULL, NULL);
-INSERT INTO `anggota_bujk` (`id`, `nama_bujk`, `kualifikasi`, `tgl_pembuatan`, `tgl_berakhir`, `nomor_kta`, `kode_provinsi`, `kode_kab_kota`, `created_at`, `updated_at`) VALUES
+(476, 'JIANGSU ZHONGTIAN TECHNOLOGY CO., Ltd', 'B', '2024-08-14', '2025-08-14', NULL, '31', '3173', NULL, NULL),
 (477, 'JIN LIAN KONSTRUKSI INDONESIA, PT', 'B', '2024-07-26', '2025-07-26', NULL, '31', '3174', NULL, NULL),
 (478, 'JISIMA PERMATA JAYA, CV', 'K', '2025-06-10', '2026-03-08', NULL, '13', '1371', NULL, NULL),
 (479, 'JITHU, CV', 'K', '2025-05-07', '2026-05-07', NULL, '33', '3306', NULL, NULL),
@@ -1122,7 +1131,8 @@ INSERT INTO `anggota_bujk` (`id`, `nama_bujk`, `kualifikasi`, `tgl_pembuatan`, `
 (772, 'PUTRA ANSIS, CV', 'K', '2025-02-17', '2026-02-17', NULL, '91', '9212', NULL, NULL),
 (773, 'PUTRA ANUS, CV', 'K', '2025-02-26', '2026-02-26', NULL, '91', '9206', NULL, NULL),
 (774, 'PUTRA BINTANG SELATAN, CV', 'K', '2025-05-16', '2026-05-16', NULL, '94', '9110', NULL, NULL),
-(775, 'PUTRA BUNGSU, CV', 'K', '2025-04-15', '2026-04-15', NULL, '13', '1373', NULL, NULL),
+(775, 'PUTRA BUNGSU, CV', 'K', '2025-04-15', '2026-04-15', NULL, '13', '1373', NULL, NULL);
+INSERT INTO `anggota_bujk` (`id`, `nama_bujk`, `kualifikasi`, `tgl_pembuatan`, `tgl_berakhir`, `nomor_kta`, `kode_provinsi`, `kode_kab_kota`, `created_at`, `updated_at`) VALUES
 (776, 'PUTRA DINAR, CV', 'K', '2025-05-14', '2026-05-14', NULL, '15', '1571', NULL, NULL),
 (777, 'PUTRA DOPUNG, CV', 'K', '2025-03-18', '2026-03-18', NULL, '91', '9202', NULL, NULL),
 (778, 'PUTRA GLAGAH WANGI, CV', 'K', '2025-02-05', '2026-02-05', NULL, '35', '3521', NULL, NULL),
@@ -1177,8 +1187,7 @@ INSERT INTO `anggota_bujk` (`id`, `nama_bujk`, `kualifikasi`, `tgl_pembuatan`, `
 (827, 'RAZANARAGHDA, CV', 'K', '2025-06-05', '2026-06-05', NULL, '18', '1812', NULL, NULL),
 (828, 'RDN JAYA MULIA, CV', 'K', '2024-12-04', '2025-12-04', NULL, '16', '1673', NULL, NULL),
 (829, 'REAL PROPERTY CIRCLE, PT', 'M', '2024-09-27', '2025-09-27', NULL, '31', '3174', NULL, NULL),
-(830, 'REKONS, CV', 'Spesialis', '2025-03-03', '2026-03-03', NULL, '96', '9201', NULL, NULL);
-INSERT INTO `anggota_bujk` (`id`, `nama_bujk`, `kualifikasi`, `tgl_pembuatan`, `tgl_berakhir`, `nomor_kta`, `kode_provinsi`, `kode_kab_kota`, `created_at`, `updated_at`) VALUES
+(830, 'REKONS, CV', 'Spesialis', '2025-03-03', '2026-03-03', NULL, '96', '9201', NULL, NULL),
 (831, 'RESA MANDIRI, CV', 'K', '2025-02-06', '2026-03-13', NULL, '32', '3209', NULL, NULL),
 (832, 'RETAMA MULTI USAHA, PT', 'M', '2024-08-19', '2025-08-19', NULL, '32', '3216', NULL, NULL),
 (833, 'REY_SHA, CV', 'K', '2024-10-07', '2025-10-07', NULL, '16', '1671', NULL, NULL),
@@ -1424,7 +1433,8 @@ INSERT INTO `anggota_bujk` (`id`, `nama_bujk`, `kualifikasi`, `tgl_pembuatan`, `
 (1073, 'WISAKA SALIM GROUP, PT', 'K', '2024-12-04', '2025-12-04', NULL, '16', '1671', NULL, NULL),
 (1074, 'WITIGI, CV', 'K', '2025-01-28', '2026-01-18', NULL, '92', '9104', NULL, NULL),
 (1075, 'WIYOI JAYA, CV', 'K', '2025-05-05', '2026-05-05', NULL, '94', '9105', NULL, NULL),
-(1076, 'WNW REALTY VENTURES, CV', 'K', '2024-09-03', '2025-09-03', NULL, '13', '1371', NULL, NULL),
+(1076, 'WNW REALTY VENTURES, CV', 'K', '2024-09-03', '2025-09-03', NULL, '13', '1371', NULL, NULL);
+INSERT INTO `anggota_bujk` (`id`, `nama_bujk`, `kualifikasi`, `tgl_pembuatan`, `tgl_berakhir`, `nomor_kta`, `kode_provinsi`, `kode_kab_kota`, `created_at`, `updated_at`) VALUES
 (1077, 'WONG TELOE, CV', 'K', '2025-05-04', '2026-05-04', NULL, '12', '1205', NULL, NULL),
 (1078, 'WSGRI ENGINEERING AND SURVEYING INCORPORATION LIMITED, Ltd', 'B', '2025-03-06', '2026-03-06', NULL, '31', '3173', NULL, NULL),
 (1079, 'WUHAN ZHONGZHI JIANYE CO., Ltd', 'B', '2024-12-28', '2025-12-28', NULL, '31', '3173', NULL, NULL),
@@ -1465,7 +1475,8 @@ INSERT INTO `berita` (`id`, `judul`, `slug`, `konten`, `image`, `status`, `publi
 INSERT INTO `berita` (`id`, `judul`, `slug`, `konten`, `image`, `status`, `published_at`, `user_id`, `kategori_id`, `kode_provinsi`, `created_at`, `updated_at`) VALUES
 (12, 'FGD GABPEKNAS - KADIN DKI Kupas Tuntas Pelelangan dan Penggunaan E-Katalog', 'fgd-gabpeknas-kadin-dki-kupas-tuntas-pelelangan-dan-penggunaan-e-katalog', '<p><strong>RAKYATNASIONAL.COM, -</strong>&nbsp;FGD GABPEKNAS - KADIN DKI Kupas Tuntas Pelelangan dan Penggunaan E-Katalog<br><br>Bertempat di Ruang Pertemuan Lt 4, KADIN Provinsi DKI Jakarta, Kompleks Perkantoran Majapahit Permai Blok B 21-23, JL Majopahit No 18-20 10160, RT 14/RW 8,Petojo, Gambir, Central Jakarta City, Jakarta, Gabungan Perusahaan Kontraktor Indonesia ( GABPEKNAS ) bersama Kamar dagang dan industri kadin Provinsi DKI Jakarta, pada <strong>Rabu, 14 Mei 2025</strong> menyelenggarakan Fokus Grup Diskusi. Dengan Tema \"Kupas Tuntas Pelelangan dan Penggunaan E-Katalog\".<br><br>Beberapa pembicara dihadirkan, diantaranya Dr. H. Hendrar Prihadi, S.E., M.M. ( Kepala LKPP ), Prof Manlian Ronald Simanjuntak ( LPJK Kementerian PU ) serta Dr Andrew Betlehem ( Praktisi Hukum ). Peserta disamping hadir di lokasi FGD juga diikuti 100 peserta melalui Zoom meating.<br><br>Ketua Umum GABPEKNAS yang diwakili Sekjen, Mulyadi Guntur Aritonang mengaku bersyukur hari ini bisa diselenggarakan Fokus Grup Diskusi yang mengupas tentang Pelelangan dan e-katalog, yang memberikan banyak manfaat, terutama dalam efisiensi dan transparansi proses pengadaan barang dan jasa, khususnya Jasa konstruksi.<br><br>E-katalog membuka akses ke pasar yang lebih luas. Bagi konsumen, e-katalog memberikan kemudahan untuk mengakses informasi produk dan jasa secara online, sehingga diharapkan akan mempercepat proses pengadaan, mengurangi birokrasi, dan memungkinkan pembelian langsung dari katalog, termasuk jasa konstruksi, dimana seluruh proses transaksi, termasuk harga dan spesifikasi, tercatat secara digital dan dapat diakses oleh semua pihak terkait. Serta mampu membantu penghematan Biaya.<br><br>E-katalog dapat mengurangi biaya seperti penggunaan kertas, dan waktu yang dihabiskan untuk mencari barang/jasa, ungkap Mulyadi Guntur Aritonang.<br><br>Ketua Umum KADIN DKI Jakarta, Ibu Diana Dewi dalam sambutan tertulis yang dibacakan Pak Gibson Nainggolan waka koordinator infrastrukur Kadin DKI Jakarta menjelaskan, bahwa banyak manfaat dari penggunaan e-katalog seperti meningkatkan efisiensi melalui penyediaan informasi yang lengkap dan akurat. Juga mengurangi biaya-biaya yang dianggap tidak perlu. Lainnya, meningkatkan transparansi dan aksesibilitas. Semua ini menjadi hal penting bagi pelaku usaha, khususnya pengadaan barang dan jasa.<br><br>Namun, e-katalog pun memiliki sejumlah kendala antara lain, keterbatasan infrastruktur, di mana pada sejumlah daerah masih terkendala terkait stabilitas jaringan internet dan perangkat keras yang kompatibel. Juga keterampilan dari para penggunanya serta jaminan keamanan data terkait barang dan jasa yang ditawarkan dan data pelaku usaha yang ikut tender.<br><br>Tercatat, hingga kuartal transaksi melalui e-Katalog telah mencapai Rp 223,81 triliun. Kita berharap, di 2025 ini, dengan e-Katalog Versi 6, nilai transaksi melalui e-katalog bisa mencapai lebih dari Rp 500 triliun, seperti target Lembaga Kebijakan Pengadaan Barang/Jasa Pemerintah (LKPP) di 2024 lalu.<br><br>E-katalog juga memiliki sejumlah tantangan di antaranya, pengembangan konten yang lebih akurat dan lengkap. Juga pengelolaan data, mengingat volume data begitu besar dan kompleks. Serta integrasi dengan sistem lain, seperti sistem pengadaan dan sistem manajemen inventori, dapat menjadi tantangan jika tidak ada standar yang jelas, ungkapnya.<br><br>Dalam paparannya Dr. Andrew Betlehn, SH, MH, CPCD, WKU Bidang Hukum Kadin DKI Jakarta menjelaskan akan pentingnya Kontrak Kerja Konstruksi yang Berkeadilan, serta kiat-kiat Menghindari Risiko dalam Kontrak konstruksi dalam Perspektif Penyedia Jasa.<br><br>Bagaimana Mengidentifikasi ketimpangan dalam kontrak jasa konstruksi, Menganalisis risiko umum dan cara mitigasinya serta Memahami prinsip dasar kontrak kerja konstruksi, memberikan tips praktis bagi kontraktor untuk menyusun kontrak yang adil dan seimbang.<br><br>Prof Manlian Ronald Simanjuntak menjelaskan bahwa LKPP terus Mendorong Transformasi Digital Pengadaan, Barang / Jasa Guna Mewujudkan Asta Cita Pemerintah guna mendorong serta mendukung, membangun Kewirausahaan Industri Nasional dan Penciptaan lapangan kerja melalui Peningkatan Ekonomi. Sehingga LKPP saat ini sedang menyempurnakan e-katalog versi 6, sehingga lebih efisien hingga 20 - 30% dalam proses pengadaan barang dan jasa. (Red)<br><br>Sumber : <a title=\"FGD GABPEKNAS - KADIN DKI Kupas Tuntas Pelelangan dan Penggunaan E-Katalog\" href=\"https://www.rakyatnasional.com/news-5970-fgd-gabpeknas--kadin-dki-kupas-tuntas-pelelangan-dan-penggunaan-ekatalog.html\" target=\"_blank\" rel=\"noopener\">https://www.rakyatnasional.com/news-5970-fgd-gabpeknas--kadin-dki-kupas-tuntas-pelelangan-dan-penggunaan-ekatalog.html</a></p>', 'berita/1750218793-whatsapp-image-2025-06-17-at-210327.jpeg', 'published', '2025-06-17 21:05:38', 2, 1, '31', '2025-06-17 21:05:38', '2025-06-18 10:53:13');
 INSERT INTO `berita` (`id`, `judul`, `slug`, `konten`, `image`, `status`, `published_at`, `user_id`, `kategori_id`, `kode_provinsi`, `created_at`, `updated_at`) VALUES
-(13, 'Banyak Pekerjaan Proyek Bermasalah, DPR Ajukan Revisi UU Jasa Konstruksi', 'banyak-pekerjaan-proyek-bermasalah-dpr-ajukan-revisi-uu-jasa-konstruksi', '<p><strong>Jakarta </strong>- Komisi V DPR RI sepakat untuk mengajukan revisi atas Undang-Undang No. 2 tahun 2017 tenang Jasa Konstruksi atau UU Jasa Konstruksi. Aturan ini dipandang perlu mendapat perbaikan lantaran minimnya sisi pengawasan sehingga muncul banyak pekerjaan bermasalah.</p>\r\n<p>Ketua Komisi V DPR RI Lasarus mengatakan, pihaknya telah mengajukan revisi UU Jasa Konstruksi ini ke Dewan Perwakilan Rakyat (DPR) melalui Badan Legislatif (Baleg). Salah satu poin revisinya ialah agar Lembaga Pengembangan Jasa Konstruksi (LPJK) tidak lagi di bawah Kementerian Pekerjaan Umum (PU).</p>\r\n<p>\"LPJK akan kami usulkan untuk tidak di bawah Kementerian PUPR. Kalau dulu kan Kementerian PUPR pak, jadi nanti LPJK ini akan kita buat kembali ke luar dari kementerian, karena check and balance itu kami lihat lemah terkait pengadaan barang dan jasa selama ini,\" kata Lasarus, dalam Rapat Kerja (Raker) bersama Menteri PU di Senayan, Jakarta, Rabu (30/10/2024).</p>\r\n<p>Lasarus mengatakan, ke depan pihaknya akan melakukan diskusi lanjutan terkait mekanisme, penyusunan naskah akademik, hingga isu-isu yang kita anggap perlu. Adapun salah satu isu yang disorotinya ialah adanya ketimpangan.</p>\r\n<p>\"Dengan UU Jasa Konstruksi yang sudah kami sahkan pada beberapa waktu yang lalu ada terjadi ketimpangan, ada dominasi BUMN terhadap kegiatan-kegiatan APBN. Kemudian organisasi dominasi perusahaan-perusahaan besar,\" ujarnya.</p>\r\n<p>Menurutnya, kondisi ini menyebabkan perusahaan-perusahaan kecil tidak mendapat kesempatan untuk masuk ke proyek pemerintah. Perusahaan-perusahaan kecil ini juga hanya kebagian tugas menyelesaikan proyek apabila ada permasalahan menimpa perusahaan utama tersebut.</p>\r\n<p>\"Hanya kebagian tugas kalau kontraknya tidak selesai, kalau pekerjaannya bermasalah, yang dimintai tolong juga adalah perusahaan-perusahaan di daerah,\" kata dia.</p>\r\n<p>Selain itu, menurut Lasarus, para perusahaan besar ini juga tidak memobilisasi peralatan dan justru meminjam yang ada di daerah. Katanya, apabila perusahaan terkait merugi, tanggung jawab penyelesaian masalah proyek tersebut malah akan dilimpahkan ke vendor kecil di daerah bahkan vendor tersebut ada yang sampai tidak dibayar.</p>\r\n<p>\"Ini PR-PR yang masih tersisa di masa lalu dan kita harus perbaiki terlepas dari success story yang sudah kita capai. Tetapi kita apresiasi dari kerja keras Kementerian PUPR saya sebut dulu, sekarang Kementerian PU,\" ujar Lasarus.</p>', 'berita/1750269805-konstruksi-169.png', 'published', '2025-06-19 01:03:25', 2, 2, '31', '2025-06-19 01:03:25', '2025-06-19 01:03:25');
+(13, 'Banyak Pekerjaan Proyek Bermasalah, DPR Ajukan Revisi UU Jasa Konstruksi', 'banyak-pekerjaan-proyek-bermasalah-dpr-ajukan-revisi-uu-jasa-konstruksi', '<p><strong>Jakarta </strong>- Komisi V DPR RI sepakat untuk mengajukan revisi atas Undang-Undang No. 2 tahun 2017 tenang Jasa Konstruksi atau UU Jasa Konstruksi. Aturan ini dipandang perlu mendapat perbaikan lantaran minimnya sisi pengawasan sehingga muncul banyak pekerjaan bermasalah.</p>\r\n<p>Ketua Komisi V DPR RI Lasarus mengatakan, pihaknya telah mengajukan revisi UU Jasa Konstruksi ini ke Dewan Perwakilan Rakyat (DPR) melalui Badan Legislatif (Baleg). Salah satu poin revisinya ialah agar Lembaga Pengembangan Jasa Konstruksi (LPJK) tidak lagi di bawah Kementerian Pekerjaan Umum (PU).</p>\r\n<p>\"LPJK akan kami usulkan untuk tidak di bawah Kementerian PUPR. Kalau dulu kan Kementerian PUPR pak, jadi nanti LPJK ini akan kita buat kembali ke luar dari kementerian, karena check and balance itu kami lihat lemah terkait pengadaan barang dan jasa selama ini,\" kata Lasarus, dalam Rapat Kerja (Raker) bersama Menteri PU di Senayan, Jakarta, Rabu (30/10/2024).</p>\r\n<p>Lasarus mengatakan, ke depan pihaknya akan melakukan diskusi lanjutan terkait mekanisme, penyusunan naskah akademik, hingga isu-isu yang kita anggap perlu. Adapun salah satu isu yang disorotinya ialah adanya ketimpangan.</p>\r\n<p>\"Dengan UU Jasa Konstruksi yang sudah kami sahkan pada beberapa waktu yang lalu ada terjadi ketimpangan, ada dominasi BUMN terhadap kegiatan-kegiatan APBN. Kemudian organisasi dominasi perusahaan-perusahaan besar,\" ujarnya.</p>\r\n<p>Menurutnya, kondisi ini menyebabkan perusahaan-perusahaan kecil tidak mendapat kesempatan untuk masuk ke proyek pemerintah. Perusahaan-perusahaan kecil ini juga hanya kebagian tugas menyelesaikan proyek apabila ada permasalahan menimpa perusahaan utama tersebut.</p>\r\n<p>\"Hanya kebagian tugas kalau kontraknya tidak selesai, kalau pekerjaannya bermasalah, yang dimintai tolong juga adalah perusahaan-perusahaan di daerah,\" kata dia.</p>\r\n<p>Selain itu, menurut Lasarus, para perusahaan besar ini juga tidak memobilisasi peralatan dan justru meminjam yang ada di daerah. Katanya, apabila perusahaan terkait merugi, tanggung jawab penyelesaian masalah proyek tersebut malah akan dilimpahkan ke vendor kecil di daerah bahkan vendor tersebut ada yang sampai tidak dibayar.</p>\r\n<p>\"Ini PR-PR yang masih tersisa di masa lalu dan kita harus perbaiki terlepas dari success story yang sudah kita capai. Tetapi kita apresiasi dari kerja keras Kementerian PUPR saya sebut dulu, sekarang Kementerian PU,\" ujar Lasarus.</p>', 'berita/1750269805-konstruksi-169.png', 'published', '2025-06-19 01:03:25', 2, 2, '31', '2025-06-19 01:03:25', '2025-06-19 01:03:25'),
+(14, 'tes berita dari gabpeknas cabang bandung', 'tes-berita-dari-gabpeknas-cabang-bandung', '<p>tes deskripsi berita gesssss</p>', 'berita/no-images.jpg', 'published', '2025-07-04 11:26:04', 2, 1, '32', '2025-07-04 11:26:04', '2025-07-04 11:26:04');
 
 
 
@@ -1606,7 +1617,7 @@ INSERT INTO `dpd_cabang` (`id`, `kode_provinsi`, `kab_kota`, `alamat`, `nama_ket
 
 
 INSERT INTO `faqs` (`id`, `question`, `answer`, `is_active`, `created_at`, `updated_at`) VALUES
-(1, 'Apa yang dimaksud dengan GABPEKNAS ?', 'GABPEKNAS (Gabungan Perusahaan Kontraktor Nasional) adalah Asosiasi Perusahaan Kontraktor Nasional yang berdiri sejak tahun 2001 di Jakarta Timur. Saat ini anggota GABPEKNAS sebanyak 19.739 perusahaan kontraktor, terdiri dari golongan kecil, menengah dan besar yang tersebar di seluruh Indonesia.', 1, '2025-07-03 00:31:41', '2025-07-03 00:31:41');
+(1, 'Apa yang dimaksud dengan GABPEKNAS ?', 'GABPEKNAS (Gabungan Perusahaan Kontraktor Nasional) adalah Asosiasi Perusahaan Kontraktor Nasional yang berdiri sejak tahun 2001 di Jakarta Timur. Saat ini anggota GABPEKNAS sebanyak 19.739 perusahaan kontraktor, terdiri dari golongan kecil, menengah dan besar yang tersebar di seluruh Indonesia.', 1, '2025-07-03 00:31:41', '2025-07-04 15:42:51');
 INSERT INTO `faqs` (`id`, `question`, `answer`, `is_active`, `created_at`, `updated_at`) VALUES
 (2, 'Bagaimana cara bergabung dengan GABPEKNAS ?', 'Anda dapat bergabung dengan mengisi formulir pendaftaran keanggotaan melalui situs resmi GABPEKNAS dan melengkapi dokumen yang dibutuhkan.', 1, '2025-07-03 00:31:41', '2025-07-03 00:31:41');
 INSERT INTO `faqs` (`id`, `question`, `answer`, `is_active`, `created_at`, `updated_at`) VALUES
@@ -2033,7 +2044,8 @@ INSERT INTO `kabupaten_kota` (`kode_kab_kota`, `kab_kota`, `kode_provinsi`, `is_
 ('7212', 'Kabupaten Morowali Utara', '72', 0, 1, NULL, NULL),
 ('7271', 'Kota Palu', '72', 1, 1, NULL, NULL),
 ('7301', 'Kabupaten Kepulauan Selayar', '73', 0, 1, NULL, NULL),
-('7302', 'Kabupaten Bulukumba', '73', 0, 1, NULL, NULL),
+('7302', 'Kabupaten Bulukumba', '73', 0, 1, NULL, NULL);
+INSERT INTO `kabupaten_kota` (`kode_kab_kota`, `kab_kota`, `kode_provinsi`, `is_ibu_kota`, `aktif`, `created_at`, `updated_at`) VALUES
 ('7303', 'Kabupaten Bantaeng', '73', 0, 1, NULL, NULL),
 ('7304', 'Kabupaten Jeneponto', '73', 0, 1, NULL, NULL),
 ('7305', 'Kabupaten Takalar', '73', 0, 1, NULL, NULL),
@@ -2204,12 +2216,13 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (28, '2025_06_17_133818_create_anggota_bujk_table', 10),
 (30, '2025_06_30_192031_create_pesan_table', 11),
 (31, '2025_04_11_082756_create_berita_table', 12),
-(32, '2025_06_03_002035_create_faqs_table', 13);
+(32, '2025_06_03_002035_create_faqs_table', 13),
+(33, '2025_07_04_145725_create_runningtext_table', 14);
 
 
 
 INSERT INTO `pesan` (`id`, `nama_depan`, `nama_belakang`, `no_telp`, `email`, `message`, `kategori`, `created_at`, `updated_at`) VALUES
-(3, 'Agung', 'Soetedjo', '082215148544', 'agungsoetedjo@gmail.com', 'tes pesan dikirim dari depan', 'Lain-lain', '2025-06-30 20:48:36', '2025-06-30 20:48:36');
+(5, 'denny', 'soetedjo', '081310867575', 'denny@gabpeknas.or.id', 'tes kirim pesan lain2 dari depan', 'Lain-lain', '2025-07-04 14:12:29', '2025-07-04 14:12:29');
 
 
 INSERT INTO `provinsi` (`kode`, `nama`, `nama_singkat`, `nama_lain`, `kode_provinsi_lama`, `aktif`, `created_at`, `updated_at`) VALUES
@@ -2341,15 +2354,15 @@ INSERT INTO `regulasi_kategori` (`id`, `nama`, `deskripsi`, `aktif`, `created_at
 (5, 'Keputusan Dirjen Bina Kontruksi', NULL, '1', '2025-06-16 11:49:52', '2025-06-16 11:49:52'),
 (6, 'Surat Edaran', NULL, '1', '2025-06-16 11:50:08', '2025-06-16 11:50:08');
 
+INSERT INTO `runningtext` (`id`, `teks`, `aktif`, `created_at`, `updated_at`) VALUES
+(1, 'Selamat Datang di situs GABPEKNAS (Gabungan Perusahaan Kontraktor Nasional). Wujudkan Usaha Jasa Konstruksi GABPEKNAS yang modern, profesional dan berkualitas untuk kesejahteraan masyarakat dan bangsa Indonesia.', 1, NULL, NULL);
+INSERT INTO `runningtext` (`id`, `teks`, `aktif`, `created_at`, `updated_at`) VALUES
+(2, 'Selamat Tahun Baru 2026 Masehi', 0, '2025-07-04 15:16:31', '2025-07-04 15:19:52');
+
+
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('6mgXxkrmhE6olOzNVOkqrtIo1F83pKBY06HXIl7K', NULL, '192.168.1.3', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiQWJaMVlXbnE5TDcyTkZsSjBUUkV0UGNXVGRENUNYR242VExicFFVdCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjM6Imh0dHA6Ly8xOTIuMTY4LjEuODo4MDAwIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1751554138);
-INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('DTJJ2C4gIPns2m8to2AV4qK7RPQnKFGhHP9KVgZF', NULL, '192.168.1.8', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiUnAybHJHOUc0VTdjVFJaUERDdkRPN2lsWkZwN2hsMXhEaDBiY0xSRSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjM6Imh0dHA6Ly8xOTIuMTY4LjEuODo4MDAwIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1751552872);
-INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('PU1B0pRkCVdeOd5Cu7glx6k7nbN7vwRfxhwo0AIg', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Herd/1.20.2 Chrome/120.0.6099.291 Electron/28.2.5 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiRVU1NVl0Zkt0R0hKS254VFFCS1BLMHlCWEpyS3BWU29FSXdHaHVRVCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzU6Imh0dHA6Ly9nYWJwZWtuYXMudGVzdC8/aGVyZD1wcmV2aWV3Ijt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1751555814);
-INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('Q74W5YrohqZppHh8KJWUvpgGvntFYNPF4Ibt3AId', NULL, '192.168.1.7', 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Mobile Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiMFk4cmFNUDZrN1ZEM2lIMkpCUUZNNDZ6R3V4emozMWh5WllORFpMdCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjM6Imh0dHA6Ly8xOTIuMTY4LjEuODo4MDAwIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1751555905),
-('SGthpy9tk5OPzreEzu0xxobMPAO711iuxqpsIeAu', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiTlhYNkNHZ1JWSjU0RVRuU25BYlAyU1ZnSFMydVZ1Z3A4a1JpTzlVSyI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMCI7fX0=', 1751556099);
+('IN6lR05PZH1TFIUiUsLLPoII1hkxsCPiy4p4gEBO', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiUDQ1c1hJSU9GbkdDMXJnZ1F6QngxTkFhMHlYaXdTeFVrdTVMZklOMiI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMCI7fX0=', 1751620026);
+
 
 INSERT INTO `sliders` (`id`, `image`, `status`, `published_at`, `created_at`, `updated_at`) VALUES
 (1, 'slider/UN2mWfRlevaVQpsluMt1QEIdx5BP95oH85LRME98.jpg', 'published', '2025-04-15 17:22:50', '2025-04-15 17:22:47', '2025-04-15 17:22:50');
