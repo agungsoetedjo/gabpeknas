@@ -29,7 +29,7 @@ class HomeController extends Controller
             $detectedProv = $geo['region'] ?? null;
 
             if ($detectedProv && !str_contains($detectedProv, 'jakarta')) {
-                return redirect()->route('home', ['prov' => $detectedProv]);
+                return redirect()->route('home.index', ['prov' => $detectedProv]);
             }
         }
 
