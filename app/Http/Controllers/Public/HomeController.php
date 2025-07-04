@@ -18,32 +18,37 @@ class HomeController extends Controller
 
     public function index(Request $request)
     {
-
         $totalAnggota = AnggotaBujk::count();
         $anggotaKadaluarsa = AnggotaBujk::whereDate('tgl_berakhir', '<', now())->count();
 
         $provinsiParam = strtolower($request->get('prov'));
 
+        // Deteksi provinsi jika belum ada parameter & bukan AJAX
         if (!$provinsiParam && !$request->ajax()) {
             $geo = GeoHelper::detectRegion();
             $detectedProv = $geo['region'] ?? null;
 
             if ($detectedProv && !str_contains($detectedProv, 'jakarta')) {
-                return redirect()->route('home.index', ['prov' => $detectedProv]);
+                session(['prov_auto' => $detectedProv]);
+                return redirect()->route('home.index'); // tanpa ?prov di URL
             }
         }
+
+        // Ambil provinsi final dari param URL atau hasil deteksi IP sebelumnya
+        $provFinal = $provinsiParam ?: session()->pull('prov_auto');
 
         $beritaQuery = Berita::with('kategori')
             ->where('status', 'published')
             ->orderBy('published_at', 'desc');
 
-        if ($provinsiParam && !str_contains($provinsiParam, 'jakarta')) {
-            $provinsi = Provinsi::whereRaw('LOWER(nama) LIKE ?', ["%{$provinsiParam}%"])->first();
+        // Filter berita berdasarkan provinsi jika bukan Jakarta
+        if ($provFinal && !str_contains($provFinal, 'jakarta')) {
+            $provinsi = Provinsi::whereRaw('LOWER(nama) LIKE ?', ["%{$provFinal}%"])->first();
 
             if ($provinsi) {
                 $beritaQuery->where('kode_provinsi', $provinsi->kode);
             } else {
-                $beritaQuery->whereRaw('1 = 0'); // aman, kosongkan
+                $beritaQuery->whereRaw('1 = 0'); // Tidak ditemukan → kosongkan
             }
         }
 
@@ -54,8 +59,7 @@ class HomeController extends Controller
             ->limit(5)
             ->get();
 
-
-        return view('public.home', compact('sliders', 'berita', 'totalAnggota', 'anggotaKadaluarsa'));
+        return view('public.home', compact('sliders', 'berita', 'totalAnggota', 'anggotaKadaluarsa', 'provFinal'));
     }
 
     public function legalitas(){

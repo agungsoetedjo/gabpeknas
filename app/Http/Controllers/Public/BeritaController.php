@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Public;
 use App\Helpers\GeoHelper;
 use App\Http\Controllers\Controller;
 use App\Models\Berita;
-use App\Models\Kategori;
 use Illuminate\Http\Request;
 
 class BeritaController extends Controller
@@ -17,18 +16,19 @@ class BeritaController extends Controller
         if (!$provinsiParam && !$request->ajax()) {
             $geo = GeoHelper::detectRegion();
             $detectedProv = $geo['region'] ?? null;
-
+        
             if ($detectedProv && !str_contains($detectedProv, 'jakarta')) {
-                return redirect()->route('news.index', ['prov' => $detectedProv]);
+                return redirect()->route('news.index')->with('prov_auto', $detectedProv);
             }
         }
-
+        
+        $provFinal = $provinsiParam ?: session('prov_auto') ?: $request->session()->get('prov_auto');
         $query = Berita::with('kategori')
             ->where('status', 'published')
             ->latest('published_at');
 
-        if ($provinsiParam && !str_contains($provinsiParam, 'jakarta')) {
-            $provinsi = \App\Models\Provinsi::whereRaw('LOWER(nama) LIKE ?', ["%{$provinsiParam}%"])->first();
+        if ($provFinal && !str_contains($provFinal, 'jakarta')) {
+            $provinsi = \App\Models\Provinsi::whereRaw('LOWER(nama) LIKE ?', ["%{$provFinal}%"])->first();
             if ($provinsi) {
                 $query->where('kode_provinsi', $provinsi->kode);
             } else {
@@ -46,9 +46,8 @@ class BeritaController extends Controller
             return view('public.berita._list', compact('berita'))->render();
         }
 
-        return view('public.berita.index', compact('berita'));
-    }
-    
+        return view('public.berita.index', compact('berita', 'provFinal'));
+    }    
     
     public function show(Request $request, Berita $berita)
     {
