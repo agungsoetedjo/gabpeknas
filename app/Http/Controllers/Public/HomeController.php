@@ -19,7 +19,7 @@ class HomeController extends Controller
     public function index(Request $request)
     {
         $totalAnggota = AnggotaBujk::count();
-        $anggotaKadaluarsa = AnggotaBujk::whereDate('tgl_berakhir', '<', now())->count();
+        $anggotaKadaluarsa = AnggotaBujk::whereDate('tgl_berakhir', '<=', now())->count();
 
         $provinsiParam = strtolower($request->get('prov'));
 

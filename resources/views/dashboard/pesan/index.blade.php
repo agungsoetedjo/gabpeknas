@@ -22,13 +22,6 @@
         </div>
 
         <div class="mt-6 p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700">
-
-            @if(session('success'))
-                <div class="p-4 mb-4 text-sm text-green-700 bg-green-100 rounded-lg">
-                    {{ session('success') }}
-                </div>
-            @endif
-
             <div class="mt-4 h-screen-1/2 rounded bg-gray-50 dark:bg-gray-800 border-2 overflow-auto">
                 <table class="min-w-full bg-white rounded shadow text-sm">
                     <thead class="border-b-2">
