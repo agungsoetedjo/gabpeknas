@@ -9,15 +9,16 @@ use App\Models\Berita;
 use App\Models\Faq;
 use App\Models\Pesan;
 use App\Models\Provinsi;
+use App\Models\RunningText;
 use App\Models\Slider;
 use Illuminate\Http\Request;
-use Illuminate\Support\Carbon;
 
 class HomeController extends Controller
 {
 
     public function index(Request $request)
     {
+        $runningText = RunningText::where('aktif', true)->get();
         $totalAnggota = AnggotaBujk::count();
         $anggotaKadaluarsa = AnggotaBujk::whereDate('tgl_berakhir', '<=', now())->count();
 
@@ -59,7 +60,7 @@ class HomeController extends Controller
             ->limit(5)
             ->get();
 
-        return view('public.home', compact('sliders', 'berita', 'totalAnggota', 'anggotaKadaluarsa', 'provFinal'));
+        return view('public.home', compact('sliders', 'berita', 'runningText', 'totalAnggota', 'anggotaKadaluarsa', 'provFinal'));
     }
 
     public function legalitas(){

@@ -23,7 +23,6 @@ class PesanController extends Controller
         return view('dashboard.pesan.index', compact('pesan', 'sort', 'direction'));
     }
     
-
     public function show($id)
     {
         $pesan = Pesan::findOrFail($id);

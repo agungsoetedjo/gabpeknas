@@ -8,9 +8,11 @@
         <marquee class="py-1 lg:py-2" direction="left" onmouseover="this.stop()" onmouseout="this.start()"
             scrollamount="10" behavior="scroll">
             <div class="flex text-sm lg:text-lg xl:text-xl">
+                @foreach($runningText as $text)
                     <div class="px-3">
-                        "Selamat Datang di situs GABPEKNAS (Gabungan Perusahaan Kontraktor Nasional). Wujudkan Usaha Jasa Konstruksi GABPEKNAS yang modern, profesional dan berkualitas untuk kesejahteraan masyarakat dan bangsa Indonesia."
+                        "{{ $text->teks }}"
                     </div> |
+                @endforeach
             </div>
         </marquee>
     </div>

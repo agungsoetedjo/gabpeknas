@@ -62,6 +62,12 @@
                         </a>
                     </li>
                     <li>
+                        <a href="{{ route('dashboard.runningtext.index') }}"
+                            class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
+                            Running Text
+                        </a>
+                    </li>
+                    <li>
                         <a href="/dashboard/berita"
                             class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Berita</a>
                     </li>
@@ -95,166 +101,6 @@
                     <span class="flex-1 ms-3 whitespace-nowrap">Pesan Masuk</span>
                 </a>
             </li>
-            {{-- <li>
-                <button type="button"
-                    class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
-                    aria-controls="dropdown-example" data-collapse-toggle="dropdown-example">
-                    <svg class="w-[24px] h-[24px] text-red-800 dark:text-white" aria-hidden="true"
-                        xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
-                        viewBox="0 0 24 24">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                            d="M19 7h1v12a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h11.5M7 14h6m-6 3h6m0-10h.5m-.5 3h.5M7 7h3v3H7V7Z" />
-                    </svg>
-                    <span class="flex-1 ms-3 text-left rtl:text-right whitespace-nowrap">Berita</span>
-                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                        viewBox="0 0 10 6">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="m1 1 4 4 4-4" />
-                    </svg>
-                </button>
-                <ul id="dropdown-example" class="hidden py-2 space-y-2">
-                    <li>
-                        <a href="/dashboard/berita"
-                            class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Semua</a>
-                    </li>
-                    <li>
-                        <a href="{{ route('dashboard.berita.create') }}"
-                            class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Tambah
-                            Berita</a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <button type="button"
-                    class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
-                    aria-controls="dropdown-galeri" data-collapse-toggle="dropdown-galeri">
-                    <svg class="w-[24px] h-[24px] text-red-800 dark:text-white" xmlns="http://www.w3.org/2000/svg" fill="none"
-                        viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M3 5h18M3 19h18M4 8h16v8H4V8z" />
-                    </svg>
-                    <span class="flex-1 ms-3 text-left rtl:text-right whitespace-nowrap">Galeri</span>
-                    <svg class="w-3 h-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="m1 1 4 4 4-4" />
-                    </svg>
-                </button>
-                <ul id="dropdown-galeri" class="hidden py-2 space-y-2">
-                    <li>
-                        <a href="{{ route('dashboard.galeri.index') }}"
-                            class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
-                            Semua
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ route('dashboard.galeri.create') }}"
-                            class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
-                            Tambah Galeri
-                        </a>
-                    </li>
-                </ul>
-            </li>            
-            <li>
-                <button type="button"
-                    class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
-                    aria-controls="dropdown-example2" data-collapse-toggle="dropdown-example2">
-                    <svg class="w-6 h-6 text-red-800 dark:text-white" aria-hidden="true"
-                        xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
-                        viewBox="0 0 24 24">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-3 5h3m-6 0h.01M12 16h3m-6 0h.01M10 3v4h4V3h-4Z" />
-                    </svg>
-                    <span class="flex-1 ms-3 text-left rtl:text-right whitespace-nowrap">Kategori Berita</span>
-                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                        viewBox="0 0 10 6">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="m1 1 4 4 4-4" />
-                    </svg>
-                </button>
-                <ul id="dropdown-example2" class="hidden py-2 space-y-2">
-                    <li>
-                        <a href="/dashboard/kategori"
-                            class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Semua</a>
-                    </li>
-                    <li>
-                        <a href="{{ route('dashboard.kategori.create') }}"
-                            class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Tambah
-                            Kategori</a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a href="{{ route('dashboard.sliders.index') }}"
-                    class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                    <svg class="w-[24px] h-[24px] text-red-800 dark:text-white" xmlns="http://www.w3.org/2000/svg"
-                        fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M3 5h18M3 19h18M4 8h16v8H4V8z" />
-                    </svg>
-                    <span class="flex-1 ms-3 whitespace-nowrap">Slider</span>
-                </a>
-            </li>
-            <li>
-                <button type="button"
-                    class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
-                    aria-controls="dropdown-regulasi" data-collapse-toggle="dropdown-regulasi">
-                    <svg class="w-6 h-6 text-red-800 dark:text-white" xmlns="http://www.w3.org/2000/svg" fill="none"
-                        viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M9 12h6m-6 4h6m2 4H7a2 2 0 01-2-2V6a2 2 0 012-2h7l5 5v11a2 2 0 01-2 2z" />
-                    </svg>
-                    <span class="flex-1 ms-3 text-left whitespace-nowrap">Regulasi</span>
-                    <svg class="w-3 h-3" xmlns="http://www.w3.org/2000/svg" fill="none"
-                        viewBox="0 0 10 6">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="m1 1 4 4 4-4" />
-                    </svg>
-                </button>
-                <ul id="dropdown-regulasi" class="hidden py-2 space-y-2">
-                    <li>
-                        <a href="{{ route('dashboard.regulasi.index') }}"
-                            class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
-                            Semua
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ route('dashboard.regulasi.create') }}"
-                            class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
-                            Tambah Regulasi
-                        </a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <button type="button"
-                    class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
-                    aria-controls="dropdown-regulasi-kategori" data-collapse-toggle="dropdown-regulasi-kategori">
-                    <svg class="w-6 h-6 text-red-800 dark:text-white" xmlns="http://www.w3.org/2000/svg" fill="none"
-                        viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M3 7a2 2 0 012-2h4l2 2h8a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V7z" />
-                    </svg>
-                    <span class="flex-1 ms-3 text-left whitespace-nowrap">Kategori Regulasi</span>
-                    <svg class="w-3 h-3" xmlns="http://www.w3.org/2000/svg" fill="none"
-                        viewBox="0 0 10 6">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="m1 1 4 4 4-4" />
-                    </svg>
-                </button>
-                <ul id="dropdown-regulasi-kategori" class="hidden py-2 space-y-2">
-                    <li>
-                        <a href="{{ route('dashboard.regulasi-kategori.index') }}"
-                            class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
-                            Semua
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ route('dashboard.regulasi-kategori.create') }}"
-                            class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
-                            Tambah Kategori
-                        </a>
-                    </li>
-                </ul>
-            </li> --}}
             @if (Auth::user()->role == 'admin')
                 <li>
                     <a href="/dashboard/users"

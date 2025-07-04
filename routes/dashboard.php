@@ -8,6 +8,7 @@ use App\Http\Controllers\Dashboard\KategoriController;
 use App\Http\Controllers\Dashboard\PesanController;
 use App\Http\Controllers\Dashboard\RegulasiController;
 use App\Http\Controllers\Dashboard\RegulasiKategoriController;
+use App\Http\Controllers\Dashboard\RunningTextController;
 use App\Http\Controllers\Dashboard\SliderController;
 use App\Http\Controllers\Dashboard\UserController;
 
@@ -44,5 +45,5 @@ Route::middleware(['auth'])
         ]);
 
         Route::resource('/pesan', PesanController::class)->only(['index', 'show', 'destroy']);
-
+        Route::resource('/runningtext', RunningTextController::class);
     });
